@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASEURL = "https://opentable.herokuapp.com/api"
+const val BASEURL = "https://opentable.herokuapp.com/api/"
 class ApiClient {
     companion object{
         private var retrofit: Retrofit?=null
