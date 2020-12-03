@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_FoodOrderApp)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
