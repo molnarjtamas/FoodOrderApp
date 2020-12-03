@@ -1,4 +1,4 @@
-package com.example.foodorderapp.home.data
+package com.example.foodorderapp.home.data.restaurant
 
 data class RestaurantModel(
     var id:Int?=0,
