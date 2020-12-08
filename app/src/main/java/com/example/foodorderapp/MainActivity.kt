@@ -5,11 +5,11 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.foodorderapp.R
-import com.example.foodorderapp.home.data.restaurant.RestaurantAdapter
 
-import com.example.foodorderapp.home.data.restaurant.RestaurantViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var bottomNavigationView: BottomNavigationView;
