@@ -8,7 +8,7 @@ import java.io.IOException
 
 private const val RESTAURANT_STARTING_PAGE_INDEX = 1
 
-class RestaurantPagingSource(
+class OpenTablePagingSource(
     private val openTableApi: OpenTableApi,
     private val city: String
 ) : PagingSource<Int, Restaurant>() {

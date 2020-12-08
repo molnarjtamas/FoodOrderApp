@@ -1,17 +1,18 @@
-package com.example.foodorderapp
+package com.example.foodorderapp.ui.restaurants
 
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.foodorderapp.R
 import com.example.foodorderapp.databinding.FragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ListFragment : Fragment(R.layout.fragment_list) {
 
-    private val viewModel by viewModels<RestaurantViewModel>()
+    private val viewModel by viewModels<RestaurantsViewModel>()
 
     private var _binding: FragmentListBinding?= null
     private val binding get() = _binding!!

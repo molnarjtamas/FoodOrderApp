@@ -1,4 +1,4 @@
-package com.example.foodorderapp
+package com.example.foodorderapp.ui.restaurants
 
 
 import androidx.hilt.lifecycle.ViewModelInject
@@ -10,7 +10,7 @@ import androidx.paging.cachedIn
 import com.example.foodorderapp.data.OpenTableRepository
 
 
-class RestaurantViewModel @ViewModelInject constructor(
+class RestaurantsViewModel @ViewModelInject constructor(
     private val repository: OpenTableRepository
     ): ViewModel() {
 

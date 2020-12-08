@@ -1,10 +1,10 @@
-package com.example.foodorderapp
+package com.example.foodorderapp.api
 
 import com.example.foodorderapp.api.OpenTableResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface RestaurantApi {
+interface OpenTableApi {
 
     companion object{
         const val BASE_URL = "https://opentable.herokuapp.com/api/"

@@ -1,4 +1,8 @@
 package com.example.foodorderapp
 
-class FoodOrderAppApplication {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class FoodOrderAppApplication : Application() {
 }

@@ -1,4 +1,4 @@
-package com.example.foodorderapp
+package com.example.foodorderapp.di
 
 import com.example.foodorderapp.api.OpenTableApi
 import dagger.Module

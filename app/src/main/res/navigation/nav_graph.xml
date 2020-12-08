@@ -7,32 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.foodorderapp.home.ui.fragments.ListFragment"
+        android:name="com.example.foodorderapp.ui.restaurants.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
-        <action
-            android:id="@+id/action_listFragment_to_detailFragment2"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_listFragment_to_profileFragment2"
-            app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.foodorderapp.home.ui.fragments.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <action
-            android:id="@+id/action_detailFragment_to_listFragment2"
-            app:destination="@id/listFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.foodorderapp.home.ui.fragments.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_list" />
 </navigation>

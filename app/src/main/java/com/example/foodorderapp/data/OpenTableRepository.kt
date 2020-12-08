@@ -1,15 +1,16 @@
-package com.example.foodorderapp
+package com.example.foodorderapp.data
 
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.liveData
+import com.example.foodorderapp.data.OpenTablePagingSource
 import com.example.foodorderapp.api.OpenTableApi
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RestaurantRepository @Inject constructor (private val openTableApi: OpenTableApi) {
+class OpenTableRepository @Inject constructor (private val openTableApi: OpenTableApi) {
 
     fun getSearchResult(city: String) =
         Pager(
@@ -18,6 +19,6 @@ class RestaurantRepository @Inject constructor (private val openTableApi: OpenTa
                 maxSize = 100,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { RestaurantPagingSource(openTableApi, city) }
+            pagingSourceFactory = { OpenTablePagingSource(openTableApi, city) }
         ).liveData
 }
