@@ -24,6 +24,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
         val adapter = RestaurantAdapter()
 
+
         binding.apply {
             recyclerViewRestaurants.setHasFixedSize(true)
             recyclerViewRestaurants.adapter= adapter

@@ -15,7 +15,7 @@ class OpenTablePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Restaurant> {
         val position = params.key ?: RESTAURANT_STARTING_PAGE_INDEX
         return try {
-            val response = openTableApi.fetchRestaurants(city, position, params.loadSize)
+            val response = openTableApi.fetchRestaurants(city)
             val restaurants = response.restaurants
 
             LoadResult.Page(
@@ -23,6 +23,7 @@ class OpenTablePagingSource(
                 prevKey = if (position == RESTAURANT_STARTING_PAGE_INDEX) null else position - 1,
                 nextKey = if (restaurants.isEmpty()) null else position + 1
             )
+
         } catch (exception: IOException) {
             LoadResult.Error(exception)
         } catch (exception: HttpException) {

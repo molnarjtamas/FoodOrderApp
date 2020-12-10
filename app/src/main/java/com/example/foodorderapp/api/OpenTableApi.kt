@@ -12,8 +12,8 @@ interface OpenTableApi {
 
     @GET("restaurants")
     suspend fun fetchRestaurants(
-        @Query("city") city: String,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
+        @Query("city") city: String
+//        @Query("page") page: Int,
+//        @Query("per_page") perPage: Int
     ): OpenTableResponse
 }

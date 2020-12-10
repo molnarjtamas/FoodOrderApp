@@ -12,7 +12,8 @@ import com.example.foodorderapp.data.Restaurant
 
 import com.example.foodorderapp.databinding.ItemRestaurantBinding
 
-class RestaurantAdapter : PagingDataAdapter<Restaurant, RestaurantAdapter.RestaurantViewHolder>(
+class RestaurantAdapter : 
+    PagingDataAdapter<Restaurant, RestaurantAdapter.RestaurantViewHolder>(
     RESTAURANT_COMPARATOR
 ) {
 
