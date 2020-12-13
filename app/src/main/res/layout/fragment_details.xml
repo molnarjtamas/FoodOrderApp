@@ -11,14 +11,12 @@
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_name"
-        tools:layout_height="250dp"
-        tools:scaleType="centerCrop"
         tools:src="@drawable/ic_restaurant_fancy" />
 
     <TextView
@@ -28,10 +26,12 @@
         android:textColor="@color/blue_800"
         android:textSize="36sp"
         android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Restaurant Name" />
+        tools:text="Restaurant Nameeeeeeeeeeeeeeee"
+        android:maxLines="2"/>
 
     <ImageView
         android:id="@+id/image_view_loc"
@@ -47,9 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="8dp"
-
         android:background="@color/blue_800"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,11 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="8dp"
-
         android:background="@color/blue_800"
-
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view_loc" />
 
@@ -73,11 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="8dp"
-
         android:background="@color/blue_800"
-
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view_phone" />
 
@@ -86,7 +78,6 @@
         android:id="@+id/image_view_phone"
         android:layout_width="140dp"
         android:layout_height="70dp"
-
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator2"
@@ -138,16 +129,19 @@
 
     <TextView
         android:id="@+id/text_view_address"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="11dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/blue_800"
         android:textSize="22sp"
         android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_view_loc"
         app:layout_constraintTop_toBottomOf="@+id/text_view_city"
-        tools:text="2942 Baker Ave" />
+        tools:text="2942 Baker Aveeeeeeeeeeeeeeeee" />
 
     <TextView
         android:id="@+id/text_view_phone_number"
@@ -172,4 +166,16 @@
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/image_view_phone"
         app:layout_constraintTop_toBottomOf="@+id/text_view_phone_number" />
+
+    <Button
+        android:id="@+id/button_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/blue_800"
+        android:drawableLeft="@drawable/ic_favorite"
+        android:text="Add Restaurant &#10;to Favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
