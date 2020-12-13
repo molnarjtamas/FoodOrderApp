@@ -9,11 +9,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+
+//using dagger hilt for dependency injection
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
 
-
+//making retrofit connection Singleton ,so we only make one instance of the connection
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit=

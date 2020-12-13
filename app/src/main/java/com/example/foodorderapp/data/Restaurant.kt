@@ -3,7 +3,7 @@ package com.example.foodorderapp.data
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-
+//Restaurant model values must match Json
 @Parcelize
 data class Restaurant(
         val id:Int,

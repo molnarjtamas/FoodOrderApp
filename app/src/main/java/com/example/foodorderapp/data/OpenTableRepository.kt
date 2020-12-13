@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class OpenTableRepository @Inject constructor (private val openTableApi: OpenTableApi) {
 
+    //function to search restaurants by cities
     fun getSearchResult(city: String) =
         Pager(
             config = PagingConfig(

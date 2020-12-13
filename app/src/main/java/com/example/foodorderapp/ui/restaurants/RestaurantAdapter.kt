@@ -12,7 +12,7 @@ import com.example.foodorderapp.data.Restaurant
 
 import com.example.foodorderapp.databinding.ItemRestaurantBinding
 
-class RestaurantAdapter : 
+class RestaurantAdapter(private val listener: OnItemClickListener) :
     PagingDataAdapter<Restaurant, RestaurantAdapter.RestaurantViewHolder>(
     RESTAURANT_COMPARATOR
 ) {
@@ -33,8 +33,22 @@ class RestaurantAdapter :
 
     }
 
-    class RestaurantViewHolder(private val binding: ItemRestaurantBinding) :
+    inner class RestaurantViewHolder(private val binding: ItemRestaurantBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener{
+                val position = bindingAdapterPosition
+                if(position != RecyclerView.NO_POSITION){
+                    val item = getItem(position)
+                    if (item != null){
+                        listener.onItemClick(item)
+                    }
+                }
+
+            }
+        }
+
         fun bind(restaurant: Restaurant) {
 
             binding.apply {
@@ -51,6 +65,9 @@ class RestaurantAdapter :
         }
     }
 
+    interface OnItemClickListener{
+        fun onItemClick(restaurant: Restaurant)
+    }
     companion object {
         private val RESTAURANT_COMPARATOR = object : DiffUtil.ItemCallback<Restaurant>() {
             override fun areItemsTheSame(oldItem: Restaurant, newItem: Restaurant) =
