@@ -4,7 +4,11 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+
 import android.view.View
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -25,6 +29,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     private val args by navArgs<DetailsFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        setHasOptionsMenu(true)
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentDetailsBinding.bind(view)
@@ -42,7 +48,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        progressBar.isVisible =false
+                        progressBar.isVisible = false
                         return false
                     }
 
@@ -53,13 +59,13 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                         dataSource: DataSource?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        progressBar.isVisible =false
-                        textViewName.isVisible =true
-                        textViewCity.isVisible =true
-                        textViewState.isVisible =true
-                        textViewCountry.isVisible =true
-                        textViewAddress.isVisible =true
-                        textViewPhoneNumber.isVisible=true
+                        progressBar.isVisible = false
+                        textViewName.isVisible = true
+                        textViewCity.isVisible = true
+                        textViewState.isVisible = true
+                        textViewCountry.isVisible = true
+                        textViewAddress.isVisible = true
+                        textViewPhoneNumber.isVisible = true
 
                         return false
                     }
@@ -99,4 +105,16 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         }
     }
+
+
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchItem.isVisible = false
+        searchView.visibility = View.GONE
+    }
+
 }

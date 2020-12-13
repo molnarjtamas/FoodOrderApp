@@ -82,7 +82,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator"
-        tools:text="Favorites" />
+        android:text="Favorites" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_favorites"

@@ -78,7 +78,7 @@ class ListFragment : Fragment(R.layout.fragment_list), RestaurantAdapter.OnItemC
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        inflater.inflate(R.menu.menu_list, menu)
+        //inflater.inflate(R.menu.menu_list, menu)
 
         val searchItem = menu.findItem(R.id.action_search)
         val searchView = searchItem.actionView as SearchView
