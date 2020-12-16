@@ -1,5 +1,6 @@
 package com.example.foodorderapp.data.user
 
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -30,8 +31,10 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         holder.itemView.text_view_email.text = currentItem.email
         holder.itemView.text_view_address.text= currentItem.address
         holder.itemView.text_view_phone.text= currentItem.phoneNumber
-        holder.itemView.image_view_avatar.setImageURI(Uri.parse(currentItem.image_url))
-
+       // holder.itemView.image_view_avatar.setImageURI(Uri.parse(currentItem.image_url))
+        val imageData = currentItem.image_byte_array
+        val bmp = BitmapFactory.decodeByteArray(imageData,0,imageData.size)
+        holder.itemView.image_view_avatar.setImageBitmap(bmp)
 
     }
 

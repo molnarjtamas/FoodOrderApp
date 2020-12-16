@@ -1,5 +1,6 @@
 package com.example.foodorderapp.data.user
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -11,5 +12,6 @@ data class User(
     val address: String,
     val phoneNumber: String,
     val email: String,
-    val image_url: String
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    val image_byte_array: ByteArray
 )
