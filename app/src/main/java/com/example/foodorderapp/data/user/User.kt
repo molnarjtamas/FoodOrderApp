@@ -10,5 +10,6 @@ data class User(
     val name: String,
     val address: String,
     val phoneNumber: String,
-    val email: String
+    val email: String,
+    val image_url: String
 )

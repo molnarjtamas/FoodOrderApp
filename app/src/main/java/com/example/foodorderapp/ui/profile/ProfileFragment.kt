@@ -50,17 +50,18 @@ class ProfileFragment : Fragment() {
 
 
         mUserViewModel.getCount.observe(viewLifecycleOwner, Observer { entries ->
-            text_view_counter.text = entries.toString()
+            if(entries >0){
+                floating_action_button_edit.isVisible = true
+            }else{
+                floating_action_button_add.isVisible = true
+                view_create.isVisible = true
+                text_view_create.isVisible = true
+            }
+
 
         })
 
-//        if (text_view_counter.text == "0") {
-//            floating_action_button_add.isVisible = true
-//            view_create.isVisible = true
-//            text_view_create.isVisible = true
-//        } else {
-//            floating_action_button_edit.isVisible = true
-//        }
+
 
         view.floating_action_button_add.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_addUserFragment)
@@ -70,28 +71,6 @@ class ProfileFragment : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//               if (text_view_counter.text.toString() == "1") {
-//                   floating_action_button_edit.isVisible = true
-//        } else {
-//                   floating_action_button_add.isVisible = true
-//                   view_create.isVisible = true
-//                   text_view_create.isVisible = true
-//
-//        }
-
-        val number: String = "0"
-        if(number.equals(text_view_counter.text.toString())){
-            floating_action_button_add.isVisible = true
-                   view_create.isVisible = true
-                   text_view_create.isVisible = true
-        }else{
-            floating_action_button_edit.isVisible = true
-        }
-
-        }
 
 }
 

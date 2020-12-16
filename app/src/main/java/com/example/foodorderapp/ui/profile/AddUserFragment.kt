@@ -1,5 +1,9 @@
 package com.example.foodorderapp.ui.profile
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -15,9 +19,13 @@ import com.example.foodorderapp.data.user.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add_user.*
 import kotlinx.android.synthetic.main.fragment_add_user.view.*
 
+
 class AddUserFragment : Fragment(){
 
     private lateinit var mUserViewModel: UserViewModel
+
+    var image_url: Uri? = null
+    val REQUEST_CODE = 100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,11 +36,26 @@ class AddUserFragment : Fragment(){
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
+        view.button_add_image.setOnClickListener{
+            openGalleryForImage()
+        }
+
         view.button_add_user.setOnClickListener {
             insertDataToDatabase()
         }
 
+
         return view
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
+//            imageView3.setImageURI(data?.data) // handle chosen image
+            image_url = data?.data
+
+        }
     }
 
     private fun insertDataToDatabase() {
@@ -40,11 +63,13 @@ class AddUserFragment : Fragment(){
         val address = edit_text_user_address.text.toString()
         val phoneNumber = edit_text_user_phone_number.text.toString()
         val email = edit_text_user_email.text.toString()
+        val image_string = image_url.toString()
 
 
-        if(inputCheck(name,address,phoneNumber,email)){
+
+        if(inputCheck(name, address, phoneNumber, email)){
             // Create User Object
-            val user = User(0,name,address,phoneNumber,email)
+            val user = User(0, name, address, phoneNumber, email, image_string)
             // Add Data to Database
             mUserViewModel.addUser(user)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
@@ -55,8 +80,16 @@ class AddUserFragment : Fragment(){
         }
     }
 
-    private fun inputCheck(name:String,address:String,phoneNumber:String,email: String): Boolean{
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(address) && TextUtils.isEmpty(phoneNumber) && TextUtils.isEmpty(email)  )
+    private fun inputCheck(name: String, address: String, phoneNumber: String, email: String): Boolean{
+        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(address) && TextUtils.isEmpty(
+            phoneNumber
+        ) && TextUtils.isEmpty(email)  )
+    }
+
+    private fun openGalleryForImage() {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE)
     }
 
 }
