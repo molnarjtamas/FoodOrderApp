@@ -28,5 +28,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) { repository.addUser(user) }
     }
 
+    fun updateUser(user: User){
+        viewModelScope.launch(Dispatchers.IO) { repository.updateUser(user) }
+    }
+
 
 }

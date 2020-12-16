@@ -32,15 +32,14 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
+        setHasOptionsMenu(true)
         //Recyclerview
         val adapter = UserAdapter()
         val recyclerView = view.recycler_view_profile
 
-
+        //adapter and layout manager
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
 
         //userViewModel
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -48,29 +47,32 @@ class ProfileFragment : Fragment() {
             adapter.setData(user)
         })
 
-
+        //count entries in database, if <0 show profile create option
         mUserViewModel.getCount.observe(viewLifecycleOwner, Observer { entries ->
-            if(entries >0){
-                floating_action_button_edit.isVisible = true
-            }else{
+            if(entries <1){
                 floating_action_button_add.isVisible = true
                 view_create.isVisible = true
                 text_view_create.isVisible = true
             }
-
-
         })
 
-
-
+        //navigate to profile creation
         view.floating_action_button_add.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_addUserFragment)
         }
 
-
         return view
     }
 
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchItem.isVisible = false
+        searchView.visibility = View.GONE
+    }
 
 }
 

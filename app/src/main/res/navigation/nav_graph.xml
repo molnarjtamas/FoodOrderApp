@@ -38,14 +38,29 @@
         <action
             android:id="@+id/action_profileFragment_to_addUserFragment"
             app:destination="@id/addUserFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateUserFragment"
+            app:destination="@id/updateUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/addUserFragment"
         android:name="com.example.foodorderapp.ui.profile.AddUserFragment"
-        android:label="fragment_add_user"
-        tools:layout="@layout/fragment_add_user" >
+        android:label="Create Profile"
+        tools:layout="@layout/fragment_add_user">
         <action
             android:id="@+id/action_addUserFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateUserFragment"
+        android:name="com.example.foodorderapp.ui.profile.UpdateUserFragment"
+        android:label="Update Profile"
+        tools:layout="@layout/fragment_update_user">
+        <action
+            android:id="@+id/action_updateUserFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.foodorderapp.data.user.User" />
     </fragment>
 </navigation>
