@@ -1,6 +1,7 @@
 package com.example.foodorderapp.ui.profile
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -61,8 +62,27 @@ class UpdateUserFragment : Fragment() {
             updateItem()
         }
 
+        view.button_delete_user.setOnClickListener {
+            deleteUser()
+        }
+
 
         return view
+    }
+
+    private fun deleteUser(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_ ->
+            mUserViewModel.deleteUser(args.currentUser)
+            Toast.makeText(requireContext(), "Successfully removed ${args.currentUser.name}", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_updateUserFragment_to_profileFragment)
+        }
+        builder.setNegativeButton("No"){_,_ ->
+
+        }
+        builder.setTitle("Delete ${args.currentUser.name} ?")
+        builder.setMessage("Are you sure you want to delete ${args.currentUser.name} ?")
+        builder.create().show()
     }
 
 
