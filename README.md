@@ -25,25 +25,25 @@ The application has a profile section where you can add your information, later 
 * GitKraken 7.4.1 - for version control
 
 ## SDK
-minSdkVersion = 21
-targetSdkVersion = 29
-compileSdkVersion = 29
+* minSdkVersion = 21
+* targetSdkVersion = 29
+* compileSdkVersion = 29
 
 ## App dependencies
-appCompatVersion = '1.2.0'
-constraintLayoutVersion = '1.1.3'
-espressoVersion = '3.2.0'
-glideVersion = '4.11.0'
-hiltAndroidXVersion = '1.0.0-alpha02'
-junitVersion = '4.13'
-ktxVersion = '1.3.1'
-pagingVersion = '3.0.0-alpha05'
-retrofitVersion = '2.9.0'
-testExtJunitVersion = '1.1.1'
-roomVersion = '2.2.5'
-lifecycleVersion = '2.2.0'
-kotlinCoroutinesVersion= '1.3.5'
-dataBindingCompilerVersion = '3.2.0-alpha10'
+* appCompatVersion = '1.2.0'
+* constraintLayoutVersion = '1.1.3'
+* espressoVersion = '3.2.0'
+* glideVersion = '4.11.0'
+* hiltAndroidXVersion = '1.0.0-alpha02'
+* junitVersion = '4.13'
+* ktxVersion = '1.3.1'
+* pagingVersion = '3.0.0-alpha05'
+* retrofitVersion = '2.9.0'
+* testExtJunitVersion = '1.1.1'
+* roomVersion = '2.2.5'
+* lifecycleVersion = '2.2.0'
+* kotlinCoroutinesVersion= '1.3.5'
+* dataBindingCompilerVersion = '3.2.0-alpha10'
 
 ## Features
 List of features 
@@ -62,8 +62,8 @@ Project is: _in progress_, until the deadline favorites functionality isn't yet 
 ## Credit
 This application was an university project at Sapientia EMTE, Marosvasarhely.
 Leading professors:
-Antal Margit
-Osztián Pálma-Rozália
+* Antal Margit
+* Osztián Pálma-Rozália
 
 ## Contact
 Created by [Molnár Tamás](https://www.linkedin.com/in/tam%C3%A1s-moln%C3%A1r-0950181a3/)
